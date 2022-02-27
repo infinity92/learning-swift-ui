@@ -9,14 +9,14 @@ import SwiftUI
 
 struct TwoTabScreen: View {
     
-    //@State var isNavigate: Bool = false
+    @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
         NavigationView {
             List {
                 NavigationLink(
                     destination: Text("This is Option 1"),
-                    //isActive: $isNavigate,
+                    isActive: $appViewModel.isNavigateActive,
                     label:  {
                         Text("Option 1");
                     })

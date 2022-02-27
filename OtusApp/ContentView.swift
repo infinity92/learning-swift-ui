@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+final class AppViewModel: ObservableObject {
+    
+    @Published var selection = 0
+    @Published var isNavigateActive = false
+    
+}
+
 struct ContentView: View {
     
-    @State private var selection = 0
+    @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $appViewModel.selection) {
             OneTabScreen()
                 .tabItem {
                     Image(systemName: "square.and.arrow.up")

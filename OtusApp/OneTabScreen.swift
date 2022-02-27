@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct OneTabScreen: View {
+    
+    @EnvironmentObject var appViewModel: AppViewModel
+    
     var body: some View {
-        Text("This is OneTab")
+        Button {
+            appViewModel.selection = 1
+            appViewModel.isNavigateActive = true
+        } label: {
+            Text("Navigate")
+                .padding()
+        }
     }
 }
 
