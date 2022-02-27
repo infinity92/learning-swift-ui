@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct ThreeTabScreen: View {
+    
+    @State var isShowModal = false
+    
     var body: some View {
-        Text("This is ThreeTab")
+        Button {
+            isShowModal.toggle()
+        } label: {
+            Text("Show modal")
+                .padding()
+        }
+        .sheet(isPresented: $isShowModal) {
+            VStack {
+                Text("This is modal")
+                Button {
+                    isShowModal = false
+                } label: {
+                    Text("Close modal")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                }
+            }
+        }
     }
 }
 
