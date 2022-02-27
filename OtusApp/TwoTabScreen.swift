@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct TwoTabScreen: View {
+    
+    //@State var isNavigate: Bool = false
+    
     var body: some View {
-        Text("This is TwoTab")
+        NavigationView {
+            List {
+                NavigationLink(
+                    destination: Text("This is Option 1"),
+                    //isActive: $isNavigate,
+                    label:  {
+                        Text("Option 1");
+                    })
+                
+                Text("Option 2");
+                Text("Option 3");
+            }
+            .navigationTitle("List")
+        }
     }
 }
 
