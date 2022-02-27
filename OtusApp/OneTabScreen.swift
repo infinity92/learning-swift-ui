@@ -12,12 +12,20 @@ struct OneTabScreen: View {
     @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
-        Button {
-            appViewModel.selection = 1
-            appViewModel.isNavigateActive = true
-        } label: {
-            Text("Navigate")
+        
+        VStack {
+            LableView(text: "This Lable use UIViewRepresentable")
+                .frame(minWidth: 0, maxWidth: 0, minHeight: 0, maxHeight: 0)
                 .padding()
+                
+            
+            Button {
+                appViewModel.selection = 1
+                appViewModel.isNavigateActive = true
+            } label: {
+                Text("Navigate")
+                    .padding()
+            }
         }
     }
 }
@@ -25,5 +33,6 @@ struct OneTabScreen: View {
 struct OneTabScreen_Previews: PreviewProvider {
     static var previews: some View {
         OneTabScreen()
+.previewInterfaceOrientation(.portrait)
     }
 }
