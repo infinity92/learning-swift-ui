@@ -11,6 +11,9 @@
 		7DBAB1F427CB519200A861CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F327CB519200A861CA /* ContentView.swift */; };
 		7DBAB1F627CB519400A861CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F527CB519400A861CA /* Assets.xcassets */; };
 		7DBAB1F927CB519400A861CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F827CB519400A861CA /* Preview Assets.xcassets */; };
+		7DBAB20027CB538200A861CA /* OneTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB1FF27CB538200A861CA /* OneTabScreen.swift */; };
+		7DBAB20227CB539200A861CA /* TwoTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB20127CB539200A861CA /* TwoTabScreen.swift */; };
+		7DBAB20427CB539F00A861CA /* ThreeTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB20327CB539F00A861CA /* ThreeTabScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		7DBAB1F327CB519200A861CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7DBAB1F527CB519400A861CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DBAB1F827CB519400A861CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7DBAB1FF27CB538200A861CA /* OneTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTabScreen.swift; sourceTree = "<group>"; };
+		7DBAB20127CB539200A861CA /* TwoTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTabScreen.swift; sourceTree = "<group>"; };
+		7DBAB20327CB539F00A861CA /* ThreeTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeTabScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				7DBAB1F127CB519200A861CA /* OtusAppApp.swift */,
 				7DBAB1F327CB519200A861CA /* ContentView.swift */,
+				7DBAB1FF27CB538200A861CA /* OneTabScreen.swift */,
+				7DBAB20127CB539200A861CA /* TwoTabScreen.swift */,
+				7DBAB20327CB539F00A861CA /* ThreeTabScreen.swift */,
 				7DBAB1F527CB519400A861CA /* Assets.xcassets */,
 				7DBAB1F727CB519400A861CA /* Preview Content */,
 			);
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DBAB1F427CB519200A861CA /* ContentView.swift in Sources */,
+				7DBAB20427CB539F00A861CA /* ThreeTabScreen.swift in Sources */,
 				7DBAB1F227CB519200A861CA /* OtusAppApp.swift in Sources */,
+				7DBAB20227CB539200A861CA /* TwoTabScreen.swift in Sources */,
+				7DBAB20027CB538200A861CA /* OneTabScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
