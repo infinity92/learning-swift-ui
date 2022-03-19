@@ -9,7 +9,7 @@ import SwiftUI
 
 final class AppViewModel: ObservableObject {
     
-    @Published var selection = 0
+    @Published var selection = 1
     @Published var isNavigateActive = false
     
 }
@@ -26,7 +26,7 @@ struct ContentView: View {
                     Text("Link")
                 }
                 .tag(0)
-            TwoTabScreen()
+            ListScreen()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("List")
