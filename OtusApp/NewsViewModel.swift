@@ -12,10 +12,6 @@ final class NewsViewModel: ObservableObject {
     
     @Published var articles: [Article] = .init()
     
-    init(theme: String) {
-        fetchArticles(by: theme)
-    }
-    
     func fetchArticles(by theme: String) {
         self.articles = []
         ArticlesAPI.everythingGet(q: theme,

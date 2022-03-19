@@ -12,25 +12,10 @@ struct ListScreen: View {
     @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
-        //NavigationView {
-            VStack {
-                /*List {
-                    NavigationLink(
-                        destination: Text("This is Option 1"),
-                        isActive: $appViewModel.isNavigateActive,
-                        label:  {
-                            Text("Option 1");
-                        })
-                    
-                    Text("Option 2");
-                    Text("Option 3");
-                }
-                .navigationTitle("List")*/
-                
-                NewsList()
-                Spacer()
-            }
-       // }
+        VStack {
+            NewsList()
+            Spacer()
+        }
     }
 }
 
@@ -40,7 +25,7 @@ struct NewsList: View {
     var listHeight: Double = 800
 
     @State var listViewTypeChoice = 0
-    @StateObject var newsViewModel: NewsViewModel = .init(theme: "Apple")
+    @StateObject var newsViewModel: NewsViewModel = .init()
     
     var body: some View {
         ScrollView {
@@ -51,11 +36,14 @@ struct NewsList: View {
                             .tag(index)
                     }
                 }
-                .onChange(of: listViewTypeChoice) { newValue in
-                    newsViewModel.fetchArticles(by: themeList[listViewTypeChoice])
+                .onAppear(perform: {
+                    loadNews()
+                })
+                .onChange(of: listViewTypeChoice) { _ in
+                    loadNews()
                 } // Picker
                 .pickerStyle(SegmentedPickerStyle())
-                //.padding(.top, 30)
+                .padding(.top, 30)
                 
                 list
                 Spacer()
@@ -70,6 +58,10 @@ struct NewsList: View {
             ListArticleCell(title: article.title ?? "",
                             description: article.description ?? "")
         }
+    }
+    
+    func loadNews() {
+        newsViewModel.fetchArticles(by: themeList[listViewTypeChoice])
     }
         
 }
