@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NewsNetwork
 
 struct ListScreen: View {
     
@@ -13,7 +14,10 @@ struct ListScreen: View {
     
     var body: some View {
         VStack {
-            NewsList()
+            NavControllerView(transition: .none) {
+                NewsList()
+            }
+            //NewsList()
             Spacer()
         }
     }
@@ -55,8 +59,10 @@ struct NewsList: View {
     var list: some View {
         
         List(newsViewModel.articles) { article in
-            ListArticleCell(title: article.title ?? "",
-                            description: article.description ?? "")
+            NavPushButton(destination: NewsDetailScreen(article: article)) {
+                ListArticleCell(title: article.title ?? "",
+                                description: article.description ?? "")
+            }
         }
     }
     
@@ -85,6 +91,76 @@ struct ListArticleCell: View {
         .frame(height: 200)
     }
     
+}
+
+struct NewsDetailScreen: View {
+    
+    let article: Article
+    var title: String {
+        if let title = article.title, !title.isEmpty {
+            return title
+        } else {
+            return article.description ?? "Unknown title"
+        }
+    }
+    
+    var body: some View {
+        
+        VStack {
+            Text(title)
+                .font(.title)
+            HStack {
+                Text(article.author ?? "Unknown author")
+                Text(article.publishedAt ?? "0000-00-00")
+            }
+            .padding()
+            Text(article.content ?? "Content is empty")
+            NavPushButton(destination: NewsURLScreen(newsURL: article.url)) {
+                Text("View URL")
+                    .padding()
+                    .background(Color.blue)
+            }
+            Spacer()
+            HStack {
+                NavPopButton(destination: .previous) {
+                    Text("Back")
+                        .padding()
+                        .foregroundColor(Color.blue)
+                }
+                Spacer()
+            }
+        }
+        .padding()
+    }
+}
+
+struct NewsURLScreen: View {
+    
+    let newsURL: String
+    
+    var body: some View {
+        
+        VStack {
+            Spacer()
+            Text(newsURL)
+            Spacer()
+            
+            HStack {
+                NavPopButton(destination: .previous) {
+                    Text("Back")
+                        .padding()
+                        .foregroundColor(Color.blue)
+                }
+                Spacer()
+                NavPopButton(destination: .root) {
+                    Text("To Root")
+                        .padding()
+                        .foregroundColor(Color.blue)
+                }
+            }
+        }
+        .padding()
+    }
 }
 
 struct TwoTabScreen_Previews: PreviewProvider {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D6C2CA927E4FD1700B4EFC4 /* NewsNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7D6C2CA827E4FD1700B4EFC4 /* NewsNetwork */; };
 		7D6C2CB227E4FF3800B4EFC4 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C2CB127E4FF3800B4EFC4 /* NewsViewModel.swift */; };
+		7D6C2CB427F1C73A00B4EFC4 /* NavControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C2CB327F1C73A00B4EFC4 /* NavControllerView.swift */; };
 		7DBAB1F227CB519200A861CA /* OtusAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F127CB519200A861CA /* OtusAppApp.swift */; };
 		7DBAB1F427CB519200A861CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F327CB519200A861CA /* ContentView.swift */; };
 		7DBAB1F627CB519400A861CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DBAB1F527CB519400A861CA /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		7D6C2CAD27E4FE2C00B4EFC4 /* newsapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = newsapi.yaml; sourceTree = SOURCE_ROOT; };
 		7D6C2CAE27E4FE2C00B4EFC4 /* generate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = SOURCE_ROOT; };
 		7D6C2CB127E4FF3800B4EFC4 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		7D6C2CB327F1C73A00B4EFC4 /* NavControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerView.swift; sourceTree = "<group>"; };
 		7DBAB1EE27CB519200A861CA /* OtusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBAB1F127CB519200A861CA /* OtusAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtusAppApp.swift; sourceTree = "<group>"; };
 		7DBAB1F327CB519200A861CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				7D6C2CB127E4FF3800B4EFC4 /* NewsViewModel.swift */,
 				7DBAB1F527CB519400A861CA /* Assets.xcassets */,
 				7DBAB1F727CB519400A861CA /* Preview Content */,
+				7D6C2CB327F1C73A00B4EFC4 /* NavControllerView.swift */,
 			);
 			path = OtusApp;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				7DBAB20227CB539200A861CA /* ListScreen.swift in Sources */,
 				7D6C2CB227E4FF3800B4EFC4 /* NewsViewModel.swift in Sources */,
 				7DBAB20627CB624F00A861CA /* LableView.swift in Sources */,
+				7D6C2CB427F1C73A00B4EFC4 /* NavControllerView.swift in Sources */,
 				7DBAB20027CB538200A861CA /* OneTabScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
