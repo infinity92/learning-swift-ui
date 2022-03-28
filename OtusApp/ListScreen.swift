@@ -14,7 +14,7 @@ struct ListScreen: View {
     
     var body: some View {
         VStack {
-            NavControllerView(transition: .none) {
+            NavControllerView(transition: .custom(.move(edge: .trailing)), easing: .spring()) {
                 NewsListScreen()
             }
             Spacer()

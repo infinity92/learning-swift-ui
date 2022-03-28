@@ -106,9 +106,9 @@
 				7DBAB20127CB539200A861CA /* ListScreen.swift */,
 				7DBAB20527CB624F00A861CA /* LableView.swift */,
 				7DBAB20327CB539F00A861CA /* ThreeTabScreen.swift */,
+				7D6C2CB327F1C73A00B4EFC4 /* NavControllerView.swift */,
 				7DBAB1F527CB519400A861CA /* Assets.xcassets */,
 				7DBAB1F727CB519400A861CA /* Preview Content */,
-				7D6C2CB327F1C73A00B4EFC4 /* NavControllerView.swift */,
 			);
 			path = OtusApp;
 			sourceTree = "<group>";
