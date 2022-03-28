@@ -19,7 +19,7 @@ struct NewsListScreen: View {
         ScrollView {
             VStack {
                 Picker("Lists", selection: $listViewTypeChoice) {
-                    ForEach(0..<themeList.count) { index in
+                    ForEach(0..<themeList.count, id: \.self) { index in
                         Text(themeList[index])
                             .tag(index)
                     }
