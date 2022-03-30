@@ -39,21 +39,21 @@ enum ThemeList: CaseIterable {
 
 
 class NewsViewModel: ObservableObject {
-    @Published var articles: [Article] = .init()
     
-    let theme: ThemeList
+    @Published var articles: [Article] = .init()
     
     private var canLoad: Bool = true
     private var page = 1
+    private var query: String
     
     init(theme: ThemeList) {
-        self.theme = theme
+        self.query = theme.getNewsQuery()
     }
     
     func fetchArticles() {
         guard canLoad else { return }
         canLoad = false
-        ArticlesAPI.everythingGet(q: theme.getNewsQuery(),
+        ArticlesAPI.everythingGet(q: query,
                                   from: "2022-03-01",
                                   sortBy: "publishedAt",
                                   language: "en",
@@ -61,7 +61,7 @@ class NewsViewModel: ObservableObject {
                                   page: page) { list, error in
             
             if error == nil {
-                print("success thrme: \(self.theme.getNewsQuery()), page: \(self.page)")
+                print("success thrme: \(self.query), page: \(self.page)")
                 self.articles.append(contentsOf: list?.articles ?? [])
                 self.page += 1
             } else {
