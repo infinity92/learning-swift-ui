@@ -9,26 +9,32 @@ import SwiftUI
 
 struct NewsListScreen: View {
 
-    var themeList = ["Apple", "Samsung", "Huawei"]
     var listHeight: Double = 800
 
-    @State var listViewTypeChoice = 0
-    @StateObject var newsViewModel: NewsViewModel = .init()
+    @State var listViewTypeChoice: ThemeList = .apple
+    
+    @ObservedObject var appleNews = NewsViewModel(theme: .apple)
+    @ObservedObject var samsungNews = NewsViewModel(theme: .samsung)
+    @ObservedObject var huaweiNews = NewsViewModel(theme: .huawei)
     
     var body: some View {
         ScrollView {
             VStack {
                 Picker("Lists", selection: $listViewTypeChoice) {
-                    ForEach(0..<themeList.count, id: \.self) { index in
-                        Text(themeList[index])
-                            .tag(index)
+                    ForEach(ThemeList.allCases, id: \.self) { theme in
+                        Text(theme.getTitle())
+                            .tag(theme)
                     }
                 }
                 .onAppear(perform: {
-                    loadNews()
+                    if getCurrentSourceNews().articles.isEmpty {
+                        getCurrentSourceNews().fetchArticles()
+                    }
                 })
                 .onChange(of: listViewTypeChoice) { _ in
-                    loadNews()
+                    if getCurrentSourceNews().articles.isEmpty {
+                        getCurrentSourceNews().fetchArticles()
+                    }
                 } // Picker
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.top, 30)
@@ -42,16 +48,27 @@ struct NewsListScreen: View {
     
     var list: some View {
         
-        List(newsViewModel.articles) { article in
+        List(getCurrentSourceNews().articles) { article in
             NavPushButton(destination: NewsDetailScreen(article: article)) {
                 NewsCell(title: article.title ?? "",
                                 description: article.description ?? "")
+                .onAppear {
+                    if article == getCurrentSourceNews().articles.last {
+                        getCurrentSourceNews().fetchArticles()
+                    }
+                }
             }
         }
     }
-    
-    func loadNews() {
-        newsViewModel.fetchArticles(by: themeList[listViewTypeChoice])
+       
+    func getCurrentSourceNews() -> NewsViewModel {
+        switch listViewTypeChoice {
+        case .apple:
+            return appleNews
+        case .samsung:
+            return samsungNews
+        case .huawei:
+            return huaweiNews
+        }
     }
-        
 }
