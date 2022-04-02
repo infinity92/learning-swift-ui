@@ -60,12 +60,12 @@ class NewsViewModel: ObservableObject {
         guard canLoad else { return }
         canLoad = false
 
-        dataProvider.requestArticle(q: query, 
+        dataProvider.requestArticle(q: query,
                                     from: nowDate,
-                                  sortBy: "publishedAt",
-                                  language: "en",
-                                  apiKey: "fcfe594b4b334e52a7cc24fb366c9caa",
-                                  page: page) { list, error in
+                                    sortBy: "publishedAt",
+                                    language: "en",
+                                    apiKey: "fcfe594b4b334e52a7cc24fb366c9caa",
+                                    page: page) { list, error in
             
             if error == nil {
                 print("success thrme: \(self.query), page: \(self.page)")

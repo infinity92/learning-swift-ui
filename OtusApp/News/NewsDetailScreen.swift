@@ -22,7 +22,6 @@ struct NewsDetailScreen: View {
     var body: some View {
         
         VStack {
-            
             AsyncImage(url: URL(string: article.urlToImage ?? "")){ image in
                 image.resizable()
             } placeholder: {
@@ -30,30 +29,35 @@ struct NewsDetailScreen: View {
                     Color.gray
                 }
             }
-            
-            Text(title)
-                .font(.title)
-            HStack {
-                Text(article.author ?? "Unknown author")
-                Text(article.publishedAt ?? "0000-00-00")
-            }
-            .padding()
-            Text(article.content ?? "Content is empty")
-            NavPushButton(destination: NewsURLScreen(newsURL: article.url)) {
-                Text("View URL")
-                    .padding()
-                    .background(Color.blue)
-            }
+            .frame(minHeight: 250)
             Spacer()
-            HStack {
-                NavPopButton(destination: .previous) {
-                    Text("Back")
+            Group {
+                Text(title)
+                    .font(.title)
+                HStack {
+                    Text(article.author ?? "Unknown author")
+                    Text(article.publishedAt ?? "0000-00-00")
+                }
+                
+                Text(article.content ?? "Content is empty")
+                NavPushButton(destination: NewsURLScreen(newsURL: article.url)) {
+                    Text("View URL")
                         .padding()
-                        .foregroundColor(Color.blue)
+                        .background(Color.blue)
                 }
                 Spacer()
+                HStack {
+                    NavPopButton(destination: .previous) {
+                        Text("Back")
+                            .padding()
+                            .foregroundColor(Color.blue)
+                    }
+                    Spacer()
+                }
             }
+            .padding()
         }
-        .padding()
+        .edgesIgnoringSafeArea(.top)
+        
     }
 }
