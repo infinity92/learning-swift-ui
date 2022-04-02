@@ -46,6 +46,11 @@ class NewsViewModel: ObservableObject {
     private var canLoad: Bool = true
     private var page = 1
     private var query: String
+    private var nowDate: String {
+        let f = DateFormatter()
+        f.dateFormat = "yyy-MM-dd"
+        return f.string(from: Date())
+    }
     
     init(theme: ThemeList) {
         self.query = theme.getNewsQuery()
@@ -54,9 +59,9 @@ class NewsViewModel: ObservableObject {
     func fetchArticles() {
         guard canLoad else { return }
         canLoad = false
-//        ArticlesAPI.everythingGet(q: query,
+
         dataProvider.requestArticle(q: query, 
-                                  from: "2022-03-01",
+                                    from: nowDate,
                                   sortBy: "publishedAt",
                                   language: "en",
                                   apiKey: "fcfe594b4b334e52a7cc24fb366c9caa",
