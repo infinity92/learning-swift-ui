@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct OtusAppApp: App {
+    
+    init() {
+        Configurator.shared.register()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
