@@ -42,6 +42,7 @@ class NewsViewModel: ObservableObject {
     
     @Published var articles: [Article] = .init()
     
+    private let dataProvider = DataProvider()
     private var canLoad: Bool = true
     private var page = 1
     private var query: String
@@ -53,7 +54,8 @@ class NewsViewModel: ObservableObject {
     func fetchArticles() {
         guard canLoad else { return }
         canLoad = false
-        ArticlesAPI.everythingGet(q: query,
+//        ArticlesAPI.everythingGet(q: query,
+        dataProvider.requestArticle(q: query, 
                                   from: "2022-03-01",
                                   sortBy: "publishedAt",
                                   language: "en",
