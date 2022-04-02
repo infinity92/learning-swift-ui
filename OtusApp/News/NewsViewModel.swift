@@ -70,6 +70,9 @@ class NewsViewModel: ObservableObject {
             if error == nil {
                 print("success thrme: \(self.query), page: \(self.page)")
                 self.articles.append(contentsOf: list?.articles ?? [])
+                self.articles.forEach { article in
+                    print(article.urlToImage ?? "not image")
+                }
                 self.page += 1
             } else {
                 debugPrint(error ?? "no error")

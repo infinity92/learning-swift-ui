@@ -22,6 +22,15 @@ struct NewsDetailScreen: View {
     var body: some View {
         
         VStack {
+            
+            AsyncImage(url: URL(string: article.urlToImage ?? "")){ image in
+                image.resizable()
+            } placeholder: {
+                ZStack {
+                    Color.gray
+                }
+            }
+            
             Text(title)
                 .font(.title)
             HStack {

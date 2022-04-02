@@ -51,7 +51,8 @@ struct NewsListScreen: View {
         List(getCurrentSourceNews().articles) { article in
             NavPushButton(destination: NewsDetailScreen(article: article)) {
                 NewsCell(title: article.title ?? "",
-                                description: article.description ?? "")
+                        imageUrl: article.urlToImage,
+                        description: article.description ?? "")
                 .onAppear {
                     if article == getCurrentSourceNews().articles.last {
                         getCurrentSourceNews().fetchArticles()
