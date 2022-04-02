@@ -1,0 +1,3 @@
+[submodule "NewsNetwork"]
+	path = Modules/NewsNetwork
+	url = git@github.com:infinity92/network-articles-api.git
