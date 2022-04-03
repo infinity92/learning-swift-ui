@@ -13,13 +13,15 @@ struct NewsCell: View {
     var imageUrl: String?
     var description: String
     
-    let cornerRadius: CGFloat = 20
+    private let cornerRadius: CGFloat = 20
+    private let shadowRadius: CGFloat = 10
+    private let cardHeight: CGFloat = 200
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .foregroundColor(.white)
-                .shadow(radius: 10)
+                .shadow(radius: shadowRadius)
             VStack {
                 AsyncImage(url: URL(string: imageUrl ?? "")){ image in
                     image.resizable()
@@ -39,7 +41,7 @@ struct NewsCell: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 200)
+        .frame(height: cardHeight)
     }
     
 }
